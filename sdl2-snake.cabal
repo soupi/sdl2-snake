@@ -1,0 +1,44 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: f0c4d31df0ca374aa46564f5a861bd22adfc1515801f4f479aceadf839819661
+
+name:           sdl2-snake
+version:        0.1.0.0
+author:         Gil Mizrahi
+maintainer:     gilmi@posteo.net
+copyright:      2018 Gil Mizrahi
+license:        Apache-2.0
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    README.md
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , random
+    , sdl2
+  exposed-modules:
+      Snake
+  other-modules:
+      Paths_sdl2_snake
+  default-language: Haskell2010
+
+executable app
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  build-depends:
+      base
+    , random
+    , sdl2
+    , sdl2-snake
+  other-modules:
+      Paths_sdl2_snake
+  default-language: Haskell2010
