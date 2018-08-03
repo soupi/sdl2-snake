@@ -2,7 +2,7 @@
 
 An example application for [sdl2](https://hackage.haskell.org/package/sdl2).
 
-- [Animated gif](https://streamable.com/7amhl).
+- [Gameplay Video](https://youtu.be/aJC58awMasU).
 
 ## Build and Run
 
