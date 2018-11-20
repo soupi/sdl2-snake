@@ -25,7 +25,9 @@ This is where we convert the current state of the game to something we can displ
 
 module Snake where
 
+import Prelude hiding (head, init, tail)
 import Data.Word (Word32)
+import Data.List.NonEmpty (NonEmpty((:|)), head, init, tail, toList)
 import Foreign.C.Types (CInt)
 import Control.Monad (when, unless)
 import Control.Concurrent (threadDelay)
@@ -110,7 +112,7 @@ regulateFPS fps start end
 
 data GameState
   = GameState
-  { sSnake :: [V2 CInt] -- we model the snake as a list of blocks
+  { sSnake :: NonEmpty (V2 CInt) -- we model the snake as a non-empty list of blocks
   , sDirection :: (Maybe Direction)
   , sStatus :: SnakeStatus
   , sFood :: Maybe (V2 CInt)
@@ -146,7 +148,7 @@ data MyEvents
 
 initGameState :: GameState
 initGameState = GameState
-  { sSnake = [V2 (blockSize * 7) (blockSize * 7)]
+  { sSnake = V2 (blockSize * 7) (blockSize * 7) :| []
   , sDirection = Just DirRight
   , sStatus = Alive
   , sFood = Just $ V2 (23 * blockSize) (14 * blockSize)
@@ -220,7 +222,7 @@ moveAndEat state
       { sMoveTimer = sMoveTimer initGameState - min (sMoveTimer initGameState - 2) (length (sSnake state))
       , sSnake =
         newBlock (sDirection state) (head $ sSnake state)
-        : (if ate state then id else init) (sSnake state)
+        :| (if ate state then toList else init) (sSnake state)
       , sFood =
         if ate state
           then Nothing
@@ -305,10 +307,10 @@ render renderer state = do
   mapM_ drawBlock $ sSnake state
 
   when (sStatus state == CollidedWithTail) $
-    putStrLn "Snake collided with it's tail :("
+    putStrLn "The snake collided with it's tail :("
 
   when (sStatus state == CollidedWithWall) $
-    putStrLn "Snake collided with the wall :("
+    putStrLn "The snake collided with the wall :("
 
   SDL.present renderer
 

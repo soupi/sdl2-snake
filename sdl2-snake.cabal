@@ -1,8 +1,10 @@
--- This file has been generated from package.yaml by hpack version 0.20.0.
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: f0c4d31df0ca374aa46564f5a861bd22adfc1515801f4f479aceadf839819661
+-- hash: 6d0e4d9463f84ed17e38f08fb40d62cfdd575e5df637d201688d69c72e75f933
 
 name:           sdl2-snake
 version:        0.1.0.0
@@ -12,8 +14,6 @@ copyright:      2018 Gil Mizrahi
 license:        Apache-2.0
 license-file:   LICENSE
 build-type:     Simple
-cabal-version:  >= 1.10
-
 extra-source-files:
     README.md
 
