@@ -68,6 +68,7 @@ cabal.sandbox.config
 *.aux
 *.hp
 .stack-work/
+stack.yaml.lock
 
 
 ### Linux ###
