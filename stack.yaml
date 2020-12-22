@@ -1,7 +1,12 @@
-resolver: lts-15.11
+resolver:
+  url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/16/26.yaml
+
 packages:
 - '.'
+
 extra-deps: []
+
 flags: {}
+
 extra-package-dbs: []
 

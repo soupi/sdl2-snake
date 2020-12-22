@@ -219,7 +219,7 @@ moveAndEat :: GameState -> GameState
 moveAndEat state
   | sMoveTimer state == 0 =
     state
-      { sMoveTimer = sMoveTimer initGameState - min (sMoveTimer initGameState - 2) (length (sSnake state))
+      { sMoveTimer = sMoveTimer initGameState - min (sMoveTimer initGameState - 1) (length (sSnake state))
       , sSnake =
         newBlock (sDirection state) (head $ sSnake state)
         :| (if ate state then toList else init) (sSnake state)
