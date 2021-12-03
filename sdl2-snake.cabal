@@ -1,11 +1,4 @@
-cabal-version: 1.12
-
--- This file has been generated from package.yaml by hpack version 0.31.2.
---
--- see: https://github.com/sol/hpack
---
--- hash: 714043e42dc9ff8745a2da7dc0864442ca9760eab9f9b1b929dd87bf2bf34df1
-
+cabal-version: 2.4
 name:           sdl2-snake
 version:        0.1.0.0
 author:         Gil Mizrahi
@@ -23,7 +16,7 @@ library
   build-depends:
       base >=4.7 && <5
     , random
-    , sdl2
+    , sdl2 >= 2.0 && <3
   exposed-modules:
       Snake
   other-modules:
@@ -39,6 +32,4 @@ executable app
     , random
     , sdl2
     , sdl2-snake
-  other-modules:
-      Paths_sdl2_snake
   default-language: Haskell2010
